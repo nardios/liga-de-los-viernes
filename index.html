@@ -26,6 +26,7 @@
   --accent-strong:#8f5a0a;
   --accent-soft:#f3e2c4;
   --accent2:#1f7a70;
+  --peor:#b23b3b;
   --rank-gold:#b9860f;
   --rank-silver:#6b6f80;
   --rank-bronze:#a15f27;
@@ -43,6 +44,7 @@
     --accent-strong:#d6912f;
     --accent-soft:#3a2f1a;
     --accent2:#4fb8ad;
+    --peor:#ff8a80;
     --rank-gold:#e8b74b;
     --rank-silver:#c3c6d4;
     --rank-bronze:#c98a4b;
@@ -60,6 +62,7 @@
   --accent-strong:#d6912f;
   --accent-soft:#3a2f1a;
   --accent2:#4fb8ad;
+  --peor:#ff8a80;
   --rank-gold:#e8b74b;
   --rank-silver:#c3c6d4;
   --rank-bronze:#c98a4b;
@@ -73,7 +76,7 @@ body{
   font-family:'Manrope',system-ui,-apple-system,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,.rank,.total,.chip,.bar-val,.bar-name{font-family:'Rajdhani',system-ui,sans-serif;}
+h1,h2,h3,.rank,.total,.chip,.bar-val,.bar-name{font-family:'Rajdhani',system-ui,sans-serif;}
 .wrap{max-width:900px;margin:0 auto;padding:20px 16px 60px;}
 .hero{
   padding:28px 22px;
@@ -127,6 +130,15 @@ h1{
   margin-bottom:18px;
   box-shadow:var(--shadow);
 }
+.panel--sub{background:var(--surface-2);box-shadow:none;}
+.week-divider{
+  display:flex;align-items:center;gap:12px;
+  margin:28px 0 12px;
+}
+.week-divider h2{
+  font-size:22px;font-weight:700;margin:0;white-space:nowrap;color:var(--text);
+}
+.week-divider::after{content:"";flex:1;height:1px;background:var(--border);}
 .section-title{font-size:20px;font-weight:700;margin:0 0 6px;letter-spacing:0.01em;}
 .legend{font-size:12.5px;color:var(--text-dim);margin:0 0 14px;}
 .board{display:flex;flex-direction:column;gap:6px;}
@@ -134,12 +146,14 @@ h1{
   display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;
   padding:10px 12px;border-radius:12px;background:var(--surface-2);
 }
+.panel--sub .row{background:var(--surface);}
 .rank{
   width:30px;height:30px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-weight:700;font-size:15px;color:var(--text-dim);
   background:var(--surface);border:1px solid var(--border);flex:0 0 auto;
 }
+.panel--sub .rank{background:var(--surface-2);}
 .rank-1{color:#1c1406;background:var(--rank-gold);border-color:var(--rank-gold);}
 .rank-2{color:#1c1406;background:var(--rank-silver);border-color:var(--rank-silver);}
 .rank-3{color:#1c1406;background:var(--rank-bronze);border-color:var(--rank-bronze);}
@@ -147,12 +161,14 @@ h1{
 .stats{flex:2 1 200px;display:flex;flex-wrap:wrap;gap:8px 14px;color:var(--text-dim);font-size:13.5px;font-variant-numeric:tabular-nums;}
 .stat--mvp{color:var(--accent-strong);}
 .stat--mencion{color:var(--accent2);}
+.stat--peor{color:var(--peor);}
 .total{
   flex:0 0 auto;font-weight:700;font-size:21px;color:var(--accent);
   min-width:42px;text-align:right;font-variant-numeric:tabular-nums;
 }
 .matches{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;}
 .match{background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:16px;}
+.panel--sub .match{background:var(--surface);}
 .match-head{
   font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:12.5px;
   color:var(--text-dim);margin-bottom:10px;
@@ -160,6 +176,7 @@ h1{
 .match-row{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:14px;flex-wrap:wrap;}
 .mplayer{font-weight:600;}
 .hero-pill{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:2px 11px;font-size:12px;color:var(--text-dim);}
+.panel--sub .hero-pill{background:var(--surface-2);}
 .hero-pill--mvp{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-strong);font-weight:600;}
 .foot{margin-top:8px;color:var(--text-dim);font-size:12.5px;}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
@@ -173,12 +190,82 @@ h1{
         <h1>Liga de los Viernes</h1>
         <p class="subtitle">Ranking y MVPs de nuestras partidas 5v5</p>
       </div>
-      <span class="chip">Semana 1</span>
+      <span class="chip">Semana 1 y 2</span>
     </div>
     <div class="premio-pill">🏆 <span>20 Soles cada viernes y un Dota Plus</span></div>
   </header>
 
   <section class="panel">
+    <h2 class="section-title">Ranking General — Acumulado</h2>
+    <p class="legend">Pts = puntos por partidas ganadas · 🏅 = veces MVP · ⭐ = menciones honoríficas · 💀 = veces peor jugador (resta 1) · Total = suma de la Semana 1 y la Semana 2</p>
+    <div class="board">
+      <div class="row"><div class="rank rank-1">1</div><div class="pname">Henry</div><div class="stats"><span class="stat">15 pts</span><span class="stat stat--mvp">🏅 2</span><span class="stat stat--mencion">⭐ 1</span></div><div class="total">18</div></div>
+      <div class="row"><div class="rank rank-1">1</div><div class="pname">Incio</div><div class="stats"><span class="stat">15 pts</span><span class="stat stat--mencion">⭐ 3</span></div><div class="total">18</div></div>
+      <div class="row"><div class="rank rank-3">3</div><div class="pname">Aliaga</div><div class="stats"><span class="stat">12 pts</span><span class="stat stat--mvp">🏅 6</span><span class="stat stat--peor">💀 1</span></div><div class="total">17</div></div>
+      <div class="row"><div class="rank">4</div><div class="pname">Mauricio</div><div class="stats"><span class="stat">12 pts</span><span class="stat stat--mencion">⭐ 2</span></div><div class="total">14</div></div>
+      <div class="row"><div class="rank">5</div><div class="pname">Carrera</div><div class="stats"><span class="stat">9 pts</span></div><div class="total">9</div></div>
+      <div class="row"><div class="rank">5</div><div class="pname">Edu</div><div class="stats"><span class="stat">6 pts</span><span class="stat stat--mvp">🏅 2</span><span class="stat stat--mencion">⭐ 2</span><span class="stat stat--peor">💀 1</span></div><div class="total">9</div></div>
+      <div class="row"><div class="rank">7</div><div class="pname">LuiGonza</div><div class="stats"><span class="stat">6 pts</span><span class="stat stat--mencion">⭐ 2</span></div><div class="total">8</div></div>
+      <div class="row"><div class="rank">8</div><div class="pname">Adrian</div><div class="stats"><span class="stat">6 pts</span><span class="stat stat--mencion">⭐ 1</span><span class="stat stat--peor">💀 1</span></div><div class="total">6</div></div>
+      <div class="row"><div class="rank">9</div><div class="pname">Jano</div><div class="stats"><span class="stat">3 pts</span><span class="stat stat--mvp">🏅 2</span></div><div class="total">5</div></div>
+      <div class="row"><div class="rank">10</div><div class="pname">Nardo</div><div class="stats"><span class="stat">3 pts</span></div><div class="total">3</div></div>
+      <div class="row"><div class="rank">10</div><div class="pname">Stephano</div><div class="stats"><span class="stat">3 pts</span></div><div class="total">3</div></div>
+      <div class="row"><div class="rank">12</div><div class="pname">Duffoo</div><div class="stats"><span class="stat">0 pts</span><span class="stat stat--mencion">⭐ 1</span></div><div class="total">1</div></div>
+      <div class="row"><div class="rank">13</div><div class="pname">Carlo Andre</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+      <div class="row"><div class="rank">13</div><div class="pname">Causa de Pollo</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+      <div class="row"><div class="rank">13</div><div class="pname">Kevin</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+      <div class="row"><div class="rank">13</div><div class="pname">Vuelaz</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+    </div>
+  </section>
+
+  <div class="week-divider"><h2>Semana 2</h2></div>
+
+  <section class="panel panel--sub">
+    <h2 class="section-title">Ranking — Semana 2</h2>
+    <p class="legend">Pts = puntos por partidas ganadas · 🏅 = veces MVP · ⭐ = mención honorífica · 💀 = peor jugador (resta 1) · Total = suma de las tres</p>
+    <div class="board">
+      <div class="row"><div class="rank rank-1">1</div><div class="pname">Incio</div><div class="stats"><span class="stat">9 pts</span><span class="stat stat--mencion">⭐ 1</span></div><div class="total">10</div></div>
+      <div class="row"><div class="rank rank-2">2</div><div class="pname">Mauricio</div><div class="stats"><span class="stat">9 pts</span></div><div class="total">9</div></div>
+      <div class="row"><div class="rank rank-3">3</div><div class="pname">LuiGonza</div><div class="stats"><span class="stat">6 pts</span><span class="stat stat--mencion">⭐ 2</span></div><div class="total">8</div></div>
+      <div class="row"><div class="rank">4</div><div class="pname">Aliaga</div><div class="stats"><span class="stat">6 pts</span><span class="stat stat--mvp">🏅 2</span><span class="stat stat--peor">💀 1</span></div><div class="total">7</div></div>
+      <div class="row"><div class="rank">4</div><div class="pname">Henry</div><div class="stats"><span class="stat">6 pts</span><span class="stat stat--mencion">⭐ 1</span></div><div class="total">7</div></div>
+      <div class="row"><div class="rank">6</div><div class="pname">Edu</div><div class="stats"><span class="stat">3 pts</span><span class="stat stat--mvp">🏅 2</span><span class="stat stat--mencion">⭐ 1</span><span class="stat stat--peor">💀 1</span></div><div class="total">5</div></div>
+      <div class="row"><div class="rank">6</div><div class="pname">Jano</div><div class="stats"><span class="stat">3 pts</span><span class="stat stat--mvp">🏅 2</span></div><div class="total">5</div></div>
+      <div class="row"><div class="rank">8</div><div class="pname">Adrian</div><div class="stats"><span class="stat">3 pts</span><span class="stat stat--peor">💀 1</span></div><div class="total">2</div></div>
+      <div class="row"><div class="rank">9</div><div class="pname">Duffoo</div><div class="stats"><span class="stat">0 pts</span><span class="stat stat--mencion">⭐ 1</span></div><div class="total">1</div></div>
+      <div class="row"><div class="rank">10</div><div class="pname">Causa de Pollo</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+      <div class="row"><div class="rank">10</div><div class="pname">Kevin</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+      <div class="row"><div class="rank">10</div><div class="pname">Vuelaz</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+    </div>
+  </section>
+
+  <section class="panel panel--sub">
+    <h2 class="section-title">Partidas — Semana 2</h2>
+    <div class="matches">
+      <div class="match">
+        <div class="match-head">Partida 1</div>
+        <div class="match-row"><span>🏆</span><span class="mplayer">Edu</span><span class="hero-pill hero-pill--mvp">Kunkka</span></div>
+        <div class="match-row"><span>⭐</span><span class="mplayer">Luigonza</span><span class="hero-pill">Willow</span></div>
+        <div class="match-row"><span>⭐</span><span class="mplayer">Duffoo</span><span class="hero-pill">Sven</span></div>
+      </div>
+      <div class="match">
+        <div class="match-head">Partida 2</div>
+        <div class="match-row"><span>🏆</span><span class="mplayer">Aliaga</span><span class="hero-pill hero-pill--mvp">Clinks</span></div>
+        <div class="match-row"><span>⭐</span><span class="mplayer">Incio</span><span class="hero-pill">Axe</span></div>
+        <div class="match-row"><span>⭐</span><span class="mplayer">Edu</span><span class="hero-pill">Life</span></div>
+      </div>
+      <div class="match">
+        <div class="match-head">Partida 3</div>
+        <div class="match-row"><span>🏆</span><span class="mplayer">Jano</span><span class="hero-pill hero-pill--mvp">Bara</span></div>
+        <div class="match-row"><span>⭐</span><span class="mplayer">Luigonza</span><span class="hero-pill">Snap</span></div>
+        <div class="match-row"><span>⭐</span><span class="mplayer">Henry</span><span class="hero-pill">Wicho</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="week-divider"><h2>Semana 1</h2></div>
+
+  <section class="panel panel--sub">
     <h2 class="section-title">Ranking — Semana 1</h2>
     <p class="legend">Pts = puntos por partidas ganadas · 🏅 = veces MVP · ⭐ = menciones honoríficas · Total = suma de los tres</p>
     <div class="board">
@@ -197,8 +284,8 @@ h1{
     </div>
   </section>
 
-  <section class="panel">
-    <h2 class="section-title">Partidas de la semana</h2>
+  <section class="panel panel--sub">
+    <h2 class="section-title">Partidas — Semana 1</h2>
     <div class="matches">
       <div class="match">
         <div class="match-head">Partida 1</div>
@@ -221,7 +308,7 @@ h1{
     </div>
   </section>
 
-  <p class="foot">Datos de la Semana 1, tomados de la hoja de cálculo del grupo.</p>
+  <p class="foot">Datos de la Semana 1 y Semana 2, tomados de la hoja de cálculo del grupo.</p>
 </div>
 </body>
 </html>
