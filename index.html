@@ -178,6 +178,14 @@ h1{
 .hero-pill{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:2px 11px;font-size:12px;color:var(--text-dim);}
 .panel--sub .hero-pill{background:var(--surface-2);}
 .hero-pill--mvp{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-strong);font-weight:600;}
+.podium{display:flex;gap:14px;flex-wrap:wrap;}
+.podium-card{flex:1 1 150px;background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;align-items:center;gap:14px;}
+.podium-medal{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:#1c1406;flex:0 0 auto;}
+.podium-medal--1{background:var(--rank-gold);}
+.podium-medal--2{background:var(--rank-silver);}
+.podium-medal--3{background:var(--rank-bronze);}
+.podium-name{font-weight:700;font-size:16px;}
+.podium-total{font-weight:700;font-size:20px;color:var(--accent);margin-left:auto;font-variant-numeric:tabular-nums;}
 .foot{margin-top:8px;color:var(--text-dim);font-size:12.5px;}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
 </style>
@@ -196,6 +204,15 @@ h1{
   </header>
 
   <section class="panel">
+    <h2 class="section-title">🏆 Top 3 General</h2>
+    <div class="podium">
+      <div class="podium-card"><div class="podium-medal podium-medal--1">1</div><div class="podium-name">Henry</div><div class="podium-total">18</div></div>
+      <div class="podium-card"><div class="podium-medal podium-medal--1">1</div><div class="podium-name">Incio</div><div class="podium-total">18</div></div>
+      <div class="podium-card"><div class="podium-medal podium-medal--3">3</div><div class="podium-name">Aliaga</div><div class="podium-total">17</div></div>
+    </div>
+  </section>
+
+  <section class="panel">
     <h2 class="section-title">Ranking General — Acumulado</h2>
     <p class="legend">Pts = puntos por partidas ganadas · 🏅 = veces MVP · ⭐ = menciones honoríficas · 💀 = veces peor jugador (resta 1) · Total = suma de la Semana 1 y la Semana 2</p>
     <div class="board">
@@ -212,9 +229,9 @@ h1{
       <div class="row"><div class="rank">10</div><div class="pname">Stephano</div><div class="stats"><span class="stat">3 pts</span></div><div class="total">3</div></div>
       <div class="row"><div class="rank">12</div><div class="pname">Duffoo</div><div class="stats"><span class="stat">0 pts</span><span class="stat stat--mencion">⭐ 1</span></div><div class="total">1</div></div>
       <div class="row"><div class="rank">13</div><div class="pname">Carlo Andre</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
-      <div class="row"><div class="rank">13</div><div class="pname">Causa de Pollo</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+      <div class="row"><div class="rank">13</div><div class="pname">Axel</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
       <div class="row"><div class="rank">13</div><div class="pname">Kevin</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
-      <div class="row"><div class="rank">13</div><div class="pname">Vuelaz</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+      <div class="row"><div class="rank">13</div><div class="pname">Nicolas</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
     </div>
   </section>
 
@@ -233,9 +250,9 @@ h1{
       <div class="row"><div class="rank">6</div><div class="pname">Jano</div><div class="stats"><span class="stat">3 pts</span><span class="stat stat--mvp">🏅 2</span></div><div class="total">5</div></div>
       <div class="row"><div class="rank">8</div><div class="pname">Adrian</div><div class="stats"><span class="stat">3 pts</span><span class="stat stat--peor">💀 1</span></div><div class="total">2</div></div>
       <div class="row"><div class="rank">9</div><div class="pname">Duffoo</div><div class="stats"><span class="stat">0 pts</span><span class="stat stat--mencion">⭐ 1</span></div><div class="total">1</div></div>
-      <div class="row"><div class="rank">10</div><div class="pname">Causa de Pollo</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+      <div class="row"><div class="rank">10</div><div class="pname">Axel</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
       <div class="row"><div class="rank">10</div><div class="pname">Kevin</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
-      <div class="row"><div class="rank">10</div><div class="pname">Vuelaz</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
+      <div class="row"><div class="rank">10</div><div class="pname">Nicolas</div><div class="stats"><span class="stat">0 pts</span></div><div class="total">0</div></div>
     </div>
   </section>
 
